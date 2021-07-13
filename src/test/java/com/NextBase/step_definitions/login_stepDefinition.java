@@ -6,6 +6,8 @@ import com.NextBase.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 
 public class login_stepDefinition {
@@ -26,13 +28,14 @@ public class login_stepDefinition {
 
     @When("User enters hr password")
     public void user_enters_hr_password() {
-        page.password_box.sendKeys(ConfigurationReader.getProperty("password"));
+        page.password_box.sendKeys(ConfigurationReader.getProperty("password") + Keys.ENTER);
     }
 
     @Then("User should see the dashboard")
     public void user_should_see_the_dashboard() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        String actualTitle = driver.getTitle();
+        String expectedTitle = "Portal";
+        Assert.assertTrue(actualTitle.contains(expectedTitle));
     }
 
     @When("User enters helpdesk username")
@@ -55,6 +58,30 @@ public class login_stepDefinition {
 
     @When("User enters marketing password")
     public void user_enters_marketing_password() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+
+    @When("User should able to click remember me")
+    public void user_should_able_to_click_remember_me() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+
+    @When("User clicks FORGOT YOUR PASSWORD? link")
+    public void user_clicks_forgot_your_password_link() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+
+    @When("User clicks reset password")
+    public void user_clicks_reset_password() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+
+    @Then("User should able to see approve text")
+    public void user_should_able_to_see_approve_text() {
         // Write code here that turns the phrase above into concrete actions
         throw new io.cucumber.java.PendingException();
     }

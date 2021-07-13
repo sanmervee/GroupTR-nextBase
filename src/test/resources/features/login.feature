@@ -31,4 +31,3 @@ Feature: Next Base app login feature
       And User clicks reset password
       Then User should able to see approve text
 
-
