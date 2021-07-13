@@ -14,8 +14,11 @@ public class NextBase_pages {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-    @FindBy(linkText = "")
-    public WebElement pew;
+    @FindBy(name = "USER_LOGIN")
+    public WebElement username_box;
+
+    @FindBy(name = "USER_PASSWORD")
+    public WebElement password_box;
 
 
 }

@@ -21,13 +21,12 @@ public class login_stepDefinition {
 
     @When("User enters hr username")
     public void user_enters_hr_username() {
-
+        page.username_box.sendKeys(ConfigurationReader.getProperty("username_hr1"));
     }
 
     @When("User enters hr password")
     public void user_enters_hr_password() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        page.password_box.sendKeys(ConfigurationReader.getProperty("password"));
     }
 
     @Then("User should see the dashboard")
