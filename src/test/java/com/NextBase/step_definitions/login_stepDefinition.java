@@ -1,6 +1,7 @@
 package com.NextBase.step_definitions;
 
 import com.NextBase.pages.NextBase_pages;
+import com.NextBase.utilities.ConfigurationReader;
 import com.NextBase.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -15,7 +16,7 @@ public class login_stepDefinition {
     @Given("User is on the login page")
     public void user_is_on_the_login_page() {
         // NextBase_pages page = new NextBase_pages();  // instance
-        page.pew.click();
+        driver.get(ConfigurationReader.getProperty("nextBaseURL"));
     }
 
     @When("User enters hr username")
