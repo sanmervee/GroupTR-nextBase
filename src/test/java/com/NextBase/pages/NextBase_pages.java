@@ -20,5 +20,10 @@ public class NextBase_pages {
     @FindBy(name = "USER_PASSWORD")
     public WebElement password_box;
 
+    @FindBy(name = "USER_REMEMBER")
+    public WebElement remember_check_box;
+
+    @FindBy(xpath = "//input[@class='login-btn']")
+    public WebElement login_button;
 
 }
