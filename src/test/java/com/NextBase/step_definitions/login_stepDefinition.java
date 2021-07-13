@@ -1,21 +1,26 @@
 package com.NextBase.step_definitions;
 
+import com.NextBase.pages.NextBase_pages;
+import com.NextBase.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.WebDriver;
 
 public class login_stepDefinition {
 
+    WebDriver driver = Driver.getDriver();  // instance WebDriver
+    NextBase_pages page = new NextBase_pages();  // instance object
+
     @Given("User is on the login page")
     public void user_is_on_the_login_page() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        // NextBase_pages page = new NextBase_pages();  // instance
+        page.pew.click();
     }
 
     @When("User enters hr username")
     public void user_enters_hr_username() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+
     }
 
     @When("User enters hr password")
