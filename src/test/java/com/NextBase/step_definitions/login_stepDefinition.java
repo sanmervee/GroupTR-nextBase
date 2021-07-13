@@ -69,24 +69,28 @@ public class login_stepDefinition {
         page.login_button.click();
         BrowserUtils.sleep(1);
         back();
+        back();
     }
 
     @When("User clicks FORGOT YOUR PASSWORD? link")
     public void user_clicks_forgot_your_password_link() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        BrowserUtils.sleep(1);
+        page.forgot_password.click();
+        BrowserUtils.sleep(1);
+        //page.username_box.sendKeys(ConfigurationReader.getProperty("username_help1"));
     }
 
     @When("User clicks reset password")
     public void user_clicks_reset_password() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        page.reset_password_button.click();
     }
 
     @Then("User should able to see approve text")
     public void user_should_able_to_see_approve_text() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        //
+        String actualText = page.approve_text.getText();
+        String expectedText = "A code to reset your password and your registration information has just been sent to your e-mail address. Please check your e-mail. Note that the reset code is re-generated on each request.";
+        Assert.assertTrue(expectedText.equals(actualText));
     }
 
     public void back(){
