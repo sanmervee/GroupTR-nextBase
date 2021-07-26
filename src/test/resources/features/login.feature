@@ -1,21 +1,23 @@
+@login @forgotPass
 Feature: Next Base app login feature
   User Story:
   As a user, I should be able to login to the app
   Accounts are: hr, helpdesk, marketing
 @login
-  Scenario: Login with wrong password and username
+  Scenario Outline: Login
     Given User is on the login page
-    When User enters wrong "username"
-    And User enters wrong "password"
-    And User should able to click remember me
-    Then User should see the error msg as "Incorrect login or password"
+    When User enters "<username>" "<password>" "<remember>"
+    Then User should see the dashboard as "Portal"
+    Examples:
+      | username                       | password | remember |
+      | hr29@cybertekschool.com        | UserUser | true     |
+      | marketing29@cybertekschool.com | UserUser | false    |
+      | helpdesk29@cybertekschool.com  | UserUser | true     |
 
-  Scenario: Login as helpdesk
+@forgotPass
+  Scenario: Testing forgot password
     Given User is on the login page
-    When User enters helpdesk username
-    And User enters helpdesk password
-    And User should able to click remember me
-    Then User should see the dashboard
-
-
-
+    When User clicks FORGOT YOUR PASSWORD? link
+    When User enters hr username
+    And User clicks reset password
+    Then User should able to see approve text
