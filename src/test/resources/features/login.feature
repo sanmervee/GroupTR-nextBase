@@ -2,13 +2,13 @@ Feature: Next Base app login feature
   User Story:
   As a user, I should be able to login to the app
   Accounts are: hr, helpdesk, marketing
-
-  Scenario: Login as hr
+@login
+  Scenario: Login with wrong password and username
     Given User is on the login page
-    When User enters hr username
-    And User enters hr password
+    When User enters wrong "username"
+    And User enters wrong "password"
     And User should able to click remember me
-    Then User should see the dashboard
+    Then User should see the error msg as "Incorrect login or password"
 
   Scenario: Login as helpdesk
     Given User is on the login page
@@ -17,17 +17,5 @@ Feature: Next Base app login feature
     And User should able to click remember me
     Then User should see the dashboard
 
-  Scenario: Login as marketing
-    Given User is on the login page
-    When User enters marketing username
-    And User enters marketing password
-    And User should able to click remember me
-    Then User should see the dashboard
 
-    Scenario: Testing forgot password
-      Given User is on the login page
-      When User clicks FORGOT YOUR PASSWORD? link
-      When User enters hr username
-      And User clicks reset password
-      Then User should able to see approve text
 

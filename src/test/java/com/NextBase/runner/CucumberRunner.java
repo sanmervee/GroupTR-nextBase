@@ -9,7 +9,8 @@ import org.junit.runner.RunWith;
         features ="src/test/resources/features",
         glue = "com/NextBase/step_definitions",
         dryRun = false,
-        plugin = "html:target/Cucumber.html"
+        plugin = "html:target/Cucumber.html",
+        tags = "@login"
 
 
 )

@@ -8,12 +8,10 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 
-public class login_stepDefinition {
+public class login_stepDefinition extends dynamicMethods {
 
     WebDriver driver = Driver.getDriver();  // instance WebDriver
     NextBase_pages page = new NextBase_pages();  // instance object
@@ -34,32 +32,6 @@ public class login_stepDefinition {
         page.password_box.sendKeys(ConfigurationReader.getProperty("password"));
     }
 
-    @Then("User should see the dashboard")
-    public void user_should_see_the_dashboard() {
-        String actualTitle = driver.getTitle();
-        String expectedTitle = "Portal";
-        Assert.assertTrue(actualTitle.contains(expectedTitle));
-    }
-
-    @When("User enters helpdesk username")
-    public void user_enters_helpdesk_username() {
-        page.username_box.sendKeys(ConfigurationReader.getProperty("username_help1"));
-    }
-
-    @When("User enters helpdesk password")
-    public void user_enters_helpdesk_password() {
-        page.password_box.sendKeys(ConfigurationReader.getProperty("password"));
-    }
-
-    @When("User enters marketing username")
-    public void user_enters_marketing_username() {
-        page.username_box.sendKeys(ConfigurationReader.getProperty("username_mark2"));
-    }
-
-    @When("User enters marketing password")
-    public void user_enters_marketing_password() {
-        page.password_box.sendKeys(ConfigurationReader.getProperty("password"));
-    }
 
     @When("User should able to click remember me")
     public void user_should_able_to_click_remember_me() {
@@ -68,8 +40,7 @@ public class login_stepDefinition {
         action.moveToElement(page.remember_check_box).click().perform();
         page.login_button.click();
         BrowserUtils.sleep(1);
-        back();
-        back();
+
     }
 
     @When("User clicks FORGOT YOUR PASSWORD? link")
@@ -93,7 +64,36 @@ public class login_stepDefinition {
         Assert.assertTrue(expectedText.equals(actualText));
     }
 
-    public void back(){
-        driver.navigate().back();
+
+
+    @When("User enters {string} {string} {string}")
+    public void userEnters(String username, String password, String remember) {
+        page.username_box.sendKeys(username);
+        page.password_box.sendKeys(password);
+        if(remember.equals("true")) {
+            page.remember_check_box.click();
+        }
+        page.login_button.click();
+    }
+
+    @Then("User should see the dashboard as {string}")
+    public void userShouldSeeTheDashboardAs(String expectedTitle) {
+        assertTitle(expectedTitle);
+    }
+
+    @When("User enters wrong {string}")
+    public void userEntersWrong(String user_pass) {
+        if(user_pass.equals("username"))
+            page.username_box.sendKeys(user_pass);
+        else if(user_pass.equals("password"))
+            page.password_box.sendKeys(user_pass);
+    }
+
+    @Then("User should see the error msg as {string}")
+    public void userShouldSeeTheErrorMsgAs(String expectedErrorMsg) {
+        BrowserUtils.sleep(3);
+        String actualErrorMsg = page.errorMsg.getText();
+        BrowserUtils.sleep(3);
+        Assert.assertEquals(expectedErrorMsg, actualErrorMsg);
     }
 }

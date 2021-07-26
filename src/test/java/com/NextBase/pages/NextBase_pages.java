@@ -36,4 +36,8 @@ public class NextBase_pages {
     @FindBy(xpath = "//div[@class='notetext']")
     public WebElement approve_text;
 
+    @FindBy(xpath = "//div[@class='errortext']")
+    public WebElement errorMsg;
+
+
 }
