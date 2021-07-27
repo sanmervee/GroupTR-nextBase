@@ -37,5 +37,24 @@ public class NextBase_pages {
     @FindBy(xpath = "//div[@class='errortext']")
     public WebElement errorMsg;
 
+    @FindBy(xpath = "//input[@id='POST_TITLE']")
+    public WebElement msg_box;
+
+    //span[@id='feed-add-post-form-link-more']
+
+
+    @FindBy(id = "blog-submit-button-save")
+    public WebElement send_button;
+
+
+    //div[@id='post-buttons-bottom']/span[@id='bx-b-uploadfile-blogPostForm']
+    //div[@id='post-buttons-bottom']/span[@id='bx-b-mention-blogPostForm']
+    //div[@id='post-buttons-bottom']/span[@id='bx-b-tag-input-blogPostForm']
+
+    //div[@id='post-buttons-bottom']/span/span[@title='Link']
+    //div[@id='post-buttons-bottom']/span/span[@title='Insert video']
+    //div[@id='post-buttons-bottom']/span/span[@title='Quote text']
+
+    //div[@id='post-buttons-bottom']/span[.='Record Video']
 
 }

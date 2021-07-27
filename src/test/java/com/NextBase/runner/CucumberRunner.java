@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
         glue = "com/NextBase/step_definitions",
         dryRun = false,
         plugin = "html:target/Cucumber.html",
-        tags = "@login"
+        tags = "@send"
 
 
 )

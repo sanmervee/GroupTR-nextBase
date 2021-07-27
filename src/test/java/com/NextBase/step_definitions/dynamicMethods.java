@@ -14,4 +14,13 @@ public class dynamicMethods {
         String actualTitle = driver.getTitle();
         Assert.assertTrue("Title is not correct!", actualTitle.contains(expectedTitle));
     }
+
+    public void userEnters(String username, String password, String remember) {
+        pages.username_box.sendKeys(username);
+        pages.password_box.sendKeys(password);
+        if(remember.equals("true")) {
+            pages.remember_check_box.click();
+        }
+        pages.login_button.click();
+    }
 }

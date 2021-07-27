@@ -8,8 +8,14 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
+
+import java.util.concurrent.TimeUnit;
 
 public class login_stepDefinition extends dynamicMethods {
 
@@ -54,16 +60,16 @@ public class login_stepDefinition extends dynamicMethods {
     @When("User clicks reset password")
     public void user_clicks_reset_password() {
         page.reset_password_button.click();
+        //Wait<WebDriver> wait= new FluentWait<WebDriver>
+        //        (driver).withTimeout(5, TimeUnit.SECONDS).pollingEvery(10, TimeUnit.SECONDS).ignoring(NoSuchElementException.class);
     }
 
     @Then("User should able to see approve text")
     public void user_should_able_to_see_approve_text() {
-        //
         String actualText = page.approve_text.getText();
         String expectedText = "A code to reset your password and your registration information has just been sent to your e-mail address. Please check your e-mail. Note that the reset code is re-generated on each request.";
         Assert.assertTrue(expectedText.equals(actualText));
     }
-
 
 
     @When("User enters {string} {string} {string}")
