@@ -12,7 +12,7 @@ public class dynamicMethods {
     NextBase_pages pages = new NextBase_pages();
 
     Faker fake = new Faker();
-    public String expectedText =  fake.job().title();
+    public String expectedText =  fake.job().title() + " ";
 
     public void assertTitle(String expectedTitle){
         String actualTitle = driver.getTitle();

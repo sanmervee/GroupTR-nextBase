@@ -50,6 +50,15 @@ public class NextBase_pages {
     @FindBy(id = "blog-submit-button-cancel")
     public WebElement cancel_button;
 
+    @FindBy(id = "linkidPostFormLHE_blogPostForm-text")
+    public WebElement textBox_text;
+
+    @FindBy(id = "linkidPostFormLHE_blogPostForm-text")
+    public WebElement textBox_linkURL;
+
+
+    @FindBy(id = "undefined")
+    public WebElement textBox_Button_save;
     //div[@id='post-buttons-bottom']/span[@id='bx-b-uploadfile-blogPostForm']
     //div[@id='post-buttons-bottom']/span[@id='bx-b-mention-blogPostForm']
     //div[@id='post-buttons-bottom']/span[@id='bx-b-tag-input-blogPostForm']
