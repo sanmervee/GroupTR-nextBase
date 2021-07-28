@@ -1,6 +1,7 @@
 package com.NextBase.pages;
 
 import com.NextBase.utilities.Driver;
+import com.github.javafaker.Faker;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -37,15 +38,17 @@ public class NextBase_pages {
     @FindBy(xpath = "//div[@class='errortext']")
     public WebElement errorMsg;
 
-    @FindBy(xpath = "//input[@id='POST_TITLE']")
+    @FindBy(xpath = "//div[@class='feed-add-post-text']")
     public WebElement msg_box;
 
     //span[@id='feed-add-post-form-link-more']
 
 
-    @FindBy(id = "blog-submit-button-save")
+    @FindBy(xpath = "//*[@id='blog-submit-button-save']")
     public WebElement send_button;
 
+    @FindBy(id = "blog-submit-button-cancel")
+    public WebElement cancel_button;
 
     //div[@id='post-buttons-bottom']/span[@id='bx-b-uploadfile-blogPostForm']
     //div[@id='post-buttons-bottom']/span[@id='bx-b-mention-blogPostForm']
