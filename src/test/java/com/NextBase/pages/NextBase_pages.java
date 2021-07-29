@@ -8,7 +8,6 @@ import org.openqa.selenium.support.PageFactory;
 
 public class NextBase_pages {
 
-    //WebDriver driver = Driver.getDriver();  // instance WebDriver
 
     public NextBase_pages() {
         PageFactory.initElements(Driver.getDriver(), this);

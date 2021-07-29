@@ -3,15 +3,12 @@ package com.NextBase.step_definitions;
 import com.NextBase.pages.NextBase_pages;
 import com.NextBase.utilities.BrowserUtils;
 import com.NextBase.utilities.Driver;
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 
 public class sendMessage_stepDefinition extends dynamicMethods {
