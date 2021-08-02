@@ -1,7 +1,6 @@
 package com.NextBase.pages;
 
 import com.NextBase.utilities.Driver;
-import com.github.javafaker.Faker;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
