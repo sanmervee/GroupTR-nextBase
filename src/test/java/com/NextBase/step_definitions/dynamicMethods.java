@@ -6,10 +6,10 @@ import com.github.javafaker.Faker;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
-public class dynamicMethods {
+public abstract class dynamicMethods extends NextBase_pages{
 
     WebDriver driver = Driver.getDriver();
-    NextBase_pages pages = new NextBase_pages();
+    //NextBase_pages pages = new NextBase_pages();
 
     Faker fake = new Faker();
     public String expectedText =  fake.job().title() + " ";
@@ -20,12 +20,12 @@ public class dynamicMethods {
     }
 
     public void userEnters(String username, String password, String remember) {
-        pages.username_box.sendKeys(username);
-        pages.password_box.sendKeys(password);
+        username_box.sendKeys(username);
+        password_box.sendKeys(password);
         if(remember.equals("true")) {
-            pages.remember_check_box.click();
+            remember_check_box.click();
         }
-        pages.login_button.click();
+        login_button.click();
     }
 
 
